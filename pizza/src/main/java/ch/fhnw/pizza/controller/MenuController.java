@@ -20,7 +20,7 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
 
-    @GetMapping(path="/pizza/{id}", produces = "application/json")
+    @GetMapping(path="/pizzas/{id}", produces = "application/json")
     public ResponseEntity<Pizza> getPizza(@PathVariable Long id) {
         try{
             Pizza pizza = menuService.findPizzaById(id);
@@ -31,14 +31,14 @@ public class MenuController {
         }
     }
 
-    @GetMapping(path="/pizza", produces = "application/json")
+    @GetMapping(path="/pizzas", produces = "application/json")
     public List<Pizza> getPizzaList() {
         List<Pizza> pizzaList = menuService.getAllPizzas();
 
         return pizzaList;
     }
 
-    @PostMapping(path="/pizza", consumes="application/json", produces = "application/json")
+    @PostMapping(path="/pizzas", consumes="application/json", produces = "application/json")
     public ResponseEntity<Pizza> addPizza(@RequestBody Pizza pizza) {
         try{
             pizza = menuService.addPizza(pizza);
