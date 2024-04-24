@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -15,7 +16,9 @@ public class Menu {
     @JsonIgnore
     private Long id;
 
-    @OneToMany(mappedBy = "menu")
+    //@OneToMany(mappedBy = "menu")
+    @OneToMany
+    @JoinColumn(name = "menu_id")
     private List<Pizza> pizzaList;
 
     private String currentOffer;

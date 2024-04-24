@@ -31,9 +31,6 @@ public class Pizza {
     @Column(name = "pizza_name")
     private String pizzaName;
 
-    @JsonIgnore
-    @ManyToOne
-    private Menu menu;
 
     @ElementCollection(targetClass = Topping.class)
     @JoinTable(name = "toppings", joinColumns = @JoinColumn(name = "pizza_id", referencedColumnName = "id"))
@@ -73,12 +70,5 @@ public class Pizza {
         this.pizzaName = pizzaName;
     }
 
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
-    } 
     
 }
